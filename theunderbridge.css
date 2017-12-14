@@ -1,0 +1,48 @@
+/* CSS Reset*/
+body, p, h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+    
+}
+
+/* Box Model Fix Here */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+
+}
+
+/* --- HEADER --- */
+
+
+     
+
+header h4{
+    background-color: dimgray;
+    text-align: center;
+    
+    
+}
+
+p{
+    color: white;
+    margin 24px;
+    text-align: center;
+}
+
+
+
+form{
+    text-align: center;
+}
+
+button{
+    border-radius: 10px;
+    width: 500px;
+    height: 50px;
+    color: red;
+    
+}
+body{
+    background-color: black;
+}
+

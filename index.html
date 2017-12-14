@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html>
+<meta name="robots" content="noindex">
+<title>The UnderBridge</title>
+
+
+<head>
+    <link rel="stylesheet" href="theunderbridge.css">
+<audio autoplay loop>
+    
+    <source src="song.mp3" type="audio/mpeg">
+    
+  
+</audio>
+
+
+</head>
+<style>
+    img{
+    max-width:100%; 
+    height:auto; 
+    align-content: center;
+   
+    }
+</style>
+
+<header>
+    <img src="underbridgelogo.jpg" alt="UnderBridge">
+        
+</header>
+       
+
+    <p>By Kenny Stephens</p>
+    <br><br>
+
+<p > Many years ago a troll constructed a bridge. His own bridge, not the handywork of man. A bridge, erected by troll hands and troll craftsmanship. As a trollbridge it was imbued with many magical properties and characteristics. He focused much of his magic however, on The UnderBridge. A mysterious and dangerous place full of treasure and deceit. And there he resides as its keeper until the end of life. </p>
+
+
+
+<form>
+<br><button type ="button"onclick="areYouReady();">Go Under The Bridge!
+</button>
+
+</form>
+
+
+
+<body>
+
+<script>
+
+//game over function
+function gameOver(userInput){
+    alert("The UnderBridge doesn't understand " + userInput + ", darkness envelopes you until you are no more.");
+    
+}
+
+//don't want to start over?
+function noStartOver(){
+    alert("Seriously, you're so lazy.");
+}
+    
+//add a confirm message here like "are you ready to begin? if yes call beginning function if false do something else like alert "too bad" and then call function
+function areYouReady(){
+    var confirmation = confirm("Are you ready to begin?");
+    if(confirmation  == true){
+        beginning();
+    }
+    else{
+        alert("Too bad, you're doing it anyway.");
+        beginning();
+    }
+}
+  
+//***********************Character Creation*****************************
+
+function beginning(){
+    
+    
+    alert("Welcome to the adventure of The UnderBridge.  You are about to embark on a long and arduous journey to regain something that was lost.  It has been taken deep inside The UnderBridge and you need it back.");
+
+    alert("In preparation, you pack some items in your pockets.  You only have room for three items; what do you take?");
+
+    inventory = {};   
+       inventory.items = [
+        
+        prompt("What's the first item you take?"),
+
+        prompt("What's the second item you take?"),
+        
+        prompt("What's the third item you take?")];
+
+        
+ alert("You pack the items and set out on your adventure.");
+ alert("You've been traveling for nearly a month when you arrive. As you get closer you notice a small entrance leading underneath.");
+    
+
+    charCreate();
+}
+    
+function charCreate(){
+    charCreation = {};
+    charCreation.name = prompt("\"Hello my friend,\" says a shaky voice from up ahead. You make your way forward into the blackness when a face is revealed to you. It's rugged and blemished and appears to belong to an aged and tired bridge troll. \"What is your name, my friend?\", it asks." , "Enter Your Name");
+    
+    charCreation.hometown = prompt("\"Ah yes, a fine name indeed, young " + charCreation.name + ".  You seem to have traveled from afar.  From where have you come?\"" , "Where are you from?");
+
+
+    charCreation.gender = prompt("\"" + charCreation.hometown + ", yes, yes, a fine realm indeed.  However, the darkness masks much of your face and the raging river distorts your voice; am I speaking with a brave lad or lass?\"" , "Lad or Lass").toLowerCase();
+    
+    if(charCreation.gender === "lad"){
+    alert("\"Of course, of course good sir, but it appears you might not know the dangers of The Underbridge...yet here you are,\" the troll grumbles. You've heard the stories and are aware that many don't return from The Underbridge.  You glance nervously backwards.");
+    
+
+    startGame();
+    
+}
+  
+else if(charCreation.gender === "lass") {
+  alert("\"Of course, of course my good lady, but it appears you might not know the dangers of The Underbridge, yet here you are,\" the troll grumbles. You've heard the stories and are aware that many don't return from The Underbridge.  You glance nervously backwards.");
+    
+    startGame();
+}
+
+else{
+    gameOver(charCreation.gender);
+    }
+}
+
+
+//*****************Start of Game***************************
+
+function startGame(){
+
+var bridgeDecision;
+    
+    bridgeDecision = prompt("The troll notices your uneasiness and continues, \"Now I am a respectful yet wise troll and would recommend you leave promptly, but indeed, the choice is yours. What do you say?\"" , "Leave or Continue").toLowerCase();
+
+    switch(bridgeDecision){
+
+        case "leave":
+        leaveBridge();
+        break;
+    
+        case "continue":
+        continueBridge();
+        break;
+ 
+        default:
+        gameOver(bridgeDecision);
+        
+    }
+}
+    
+function leaveBridge(){
+    alert("The troll escorts you out from underneath the bridge and back towards where you came from.");
+    }
+
+function continueBridge(){
+    alert("The troll bows low and allows you to pass. \"Very well,\" he mumbles underneath his breath.");
+    
+    charCreation.item = prompt("As you pass, the troll grabs you by the arm, \"If you don't mind me asking, what item do you seek?\"" , "What item do you seek?");
+    
+    alert("\"Ah," + charCreation.item + " huh? So be it.\" He loosens his grip and you continue. As you move the troll notices the " + inventory.items[2] + " in your pocket but doesn't seem to mind.");
+    
+    
+    var flameColor = prompt("As you stroll along the winding and narrow path deeper underneath the bridge you notice three torches up ahead, each lit with a different colored flame.  Standing underneath each flame, a door.  You observe the flames closer.  One dances with a blood-like crimson, the second a rich emerald  and the third, a deep azure. With some hesitation you know you must decide upon which door to enter.  Which flame shall you follow?" , "Crimson, Emerald or Azure").toLowerCase(); 
+    
+    
+    switch(flameColor){
+    
+        case "crimson":
+            crimsonFlame();
+        break;
+            
+        case "emerald":
+            emeraldFlame();
+        break;
+            
+        case "azure":
+            azureFlame();
+        break;
+        
+        default:
+            gameOver(flameColor);
+        }
+    }
+function crimsonFlame(){
+    alert("You feel drawn to the crimson light and make your way towards it.  You pull open the door and begin to enter.  As your first step crosses the threshold you realize there is nothing but emptiness below you. Your momentum is too much and you plunge into the neverending abyss below, destined to fall forever.");
+        
+    var startOver = prompt("Would you like to start again?" , "Yes or No").toLowerCase();
+        
+    switch(startOver){
+                
+        case "yes":
+             startGame();
+            break;
+                
+        case "no":
+             noStartOver();
+             break;
+            
+        default:
+            gameOver(startOver);
+    }
+}
+    
+function emeraldFlame(){
+    alert("The emerald flame calls to you and you proceed to it and enter.  The other side is profoundly brighter and you squint and try to deflect the light with your hand.  As your gaze adjusts you notice a swarm of glowing insects.  Their bodies are thick and long, covered with several stingers that appeared to be dripping some sort of liquid.  They're moving quickly towards you. You notice a small cave-like entrance immediately to your right, but wonder if turning back would be safer.");
+    var insectDecision = prompt("You must decide quick! Lunge for the cave or head back through the door?" , "Cave or Door?").toLowerCase();
+        
+    switch(insectDecision){
+                
+        case "cave":
+            caveEntrance();
+        break;
+            
+        case "door":
+            alert("You turn back towards the door and urgently turn the knob.  It appears to be locked and won't budge.  You hear the increasingly louder swarm close behind you. You turn only in time to see a cluster of poisonous stingers enter your body in multiple locations.  A shock of pain fills your veins, then death.");
+                
+            //add if-else statement here for startOver
+            var startOver = prompt("Would you like to start again?" , "Yes or No").toLowerCase();
+                
+            if(startOver == "yes"){
+                startGame();
+            }
+            else if(startOver == "no"){
+                noStartOver();
+            }
+            else{
+                gameOver(startOver);  
+            }
+                
+        break;
+        default:
+            gameOver(insectDecision);
+         }
+    } 
+    
+function caveEntrance(){
+    alert("You dive into the cave as the swarm slams into the door and scatters.  You slide along the sloped entrance until you finally arrive in a large room. You notice that the wall to your left is lined with weapons. You decide to take one for protection. Three weapons immediately catch your attention as you get closer: a broad and sharp sword, a dwarven hammer and a bag that appears to be filled with glowing magical powder.");
+        
+    //maybe some sort of array here for practice?
+        
+    var weapon = prompt("Which weapon do you wield?" , "Sword, Hammer or Magical Powder").toLowerCase();
+        
+        if(weapon == "sword"){
+        alert("You decide upon the sword and grab it off the wall. You hear a slight shift in the wall as if something was triggered.  You turn around as a spear is ejected towards you from the opposite wall.  You must act quickly!");
+     var quickDecision = prompt("What do you do?");
+        alert("You " + quickDecision + ", but you were too slow and the spear impales you and anchors you to the wall to rot for an age.");
+        var startOver = prompt("Would you like to start again?" , "Yes or No").toLowerCase();
+                
+            if(startOver == "yes"){
+                startGame();
+            }
+            else if(startOver == "no"){
+                 noStartOver();
+            }
+            else{
+                gameOver(startOver);  
+        }
+    }
+            
+        else if(weapon == "hammer"){
+            alert("Surely the hammer is the best decision of the lot.  You grasp it's handle with both of your hands. As you attempt to lift it upwards you feel a gentle vibration through the lengh of the great mallet and notice the tips of your fingers morphing into a thick rock-like substance.  The thick plaster runs up your forearms as you try to pull away. It reaches your shoulders and divides its route upward and downward.  You open your mouth to scream and your mouth is filled and your eyes covered.  You stand now, forever entombed as a monument and caveat to the dangers of The UnderBridge.");
+            var startOver = prompt("Would you like to start again?" , "Yes or No").toLowerCase();
+                
+                if(startOver == "yes"){
+                    startGame();
+                }
+                else if(startOver == "no"){
+                    noStartOver();
+                }
+                else{
+                  gameOver(startOver);  
+    }
+}
+     else if(weapon.search("magic") !=-1 || weapon.search("powder") !=-1){
+        alert("You hesitate, but grasp the magic powder.  It's in a small leather satchel that you sling over your shoulder.  You turn away from the weapons to observe the rest of the room.");
+        alert("You see what appears to be an opening on the far side of the room.  You head towards it in hopes of escaping this dreadful place. As you pass through the opening you notice the path gradually raising to what appears to be the surface, the exit seemingly sealed shut by a large stone.  You make your way towards it.");
+        alert("Then a thunderous voice begins to speak as you stop in fear.");
+        alert("\"WHO DARES THIEVE FROM ME MY MOST PRIZED VANISHING MAGIC?!\", the voice calls out.");
+        alert("Suddenly the walls of the passage crack and begin rumbling towards one another.  You panic as you quickly look back to the room fro which you came. Then you remember the vanishing powder slung over your shoulder. You've heard of such magic but know that often it is used with great risk.");
+        var roomOrPowder = prompt("You must quickly decide. Attempt the vanishing powder or try for the safe room behind you?" , "Powder or Room?").toLowerCase();
+        if(roomOrPowder == "powder"){
+            alert("You grab the satchel and empty the contents into your hand.  You throw the dust into the air and without hesitation jump into the smoke.");
+            escapeTheCave();
+        }
+        else if(roomOrPowder == "room"){
+            alert("You decide to make for the earlier room.  You break into a sprint as the walls creep closer and closer.  You're so close. The walls force you to sidle.  You're not close enough.  Your escaped hand hangs limp in the safety of the room. \"NO THIEF ESCAPES THE CAVE OF BONES!\"");
+        
+        var startOver = prompt("Would you like to start again?" , "Yes or No").toLowerCase();
+                
+            if(startOver == "yes"){
+                startGame();
+            }
+            else if(startOver == "no"){
+                noStartOver();
+            }
+            else{
+                gameOver(startOver); 
+        }
+    }
+        else{
+            gameOver(roomOrPowder);
+        }
+    }
+    else {
+         gameOver(weapon);
+    }
+}
+       
+function azureFlame(){
+    var figureOrNot = prompt("The flicker of azure seems to beckon you forward.  You move towards the door, open it, and enter. You feel a rush of calm and quiet as you close the door behind you.  You see a thin, hooded figure directly ahead.  The figure's head is bowed, hiding its face.  You're not sure if you should approach or head in a less mysterious direction." , "Approach Figure or Go Somewhere Else.").toLowerCase();
+        
+        if (figureOrNot.search("approach") !=-1 || figureOrNot.search("figure")  !=-1){
+            figure();
+        }    
+        else if(figureOrNot.search("somewhere") !=-1 || figureOrNot.search("else") !=-1){
+            somewhereElse();
+    }
+        else{
+            gameOver(figureOrNot);
+    }
+}
+    
+function figure(){
+    alert("You decide to engage the being that's standing ominously up ahead.  As you get closer it raises its hand beckoning you to stop.  It slowly raises its head and you see the face hidden beneath. It is sallow and cold. You speak slowly, introducing yourself.");
+     alert("\"Hello, my name is " + charCreation.name + " of " + charCreation.hometown + ", who might you be?\"");
+        
+    alert("\"I am the one that can help you reach the other side of The UnderBridge,\" the figure responds. \"Pray, follow me\"");
+    alert("Void of choice, you follow.");
+    theHoodedFigure();
+}
+    
+function somewhereElse(){
+    alert("You decide to try another way, not trusting the figure.  As you make your way towards what appears to be a dense and dark forest the figure speaks.");
+    alert("\"" + charCreation.name +"\", it says in a low and powerful voice.");
+    var figureQuestion = prompt("It continues, \"That is your name, correct?\"" , "Yes or No").toLowerCase();
+    
+    switch(figureQuestion){
+        case "yes":
+            alert("You answer in the affirmative as you turn back around to face the source of the question.");
+            alert("\"Then I can help you,\" the hooded body says. \"Follow me.\"");
+            theHoodedFigure();
+        break;
+            
+        case "no":
+            alert("You deny that the name belongs to you.  Before you can proceed away from the figure a warm blade escapes the front of your chest.  You gasp and stiffen. \"Lies will never reach the other side of my bridge\", the voice calmy whispers as you fall to your knees and then quietly to the floor."); 
+                  
+        var startOver = prompt("Would you like to start again?" , "Yes or No").toLowerCase();
+                
+        if(startOver == "yes"){
+                startGame();
+            }
+            else if(startOver == "no"){
+                noStartOver();
+            }
+            else{
+                gameOver(startOver);  
+            }
+        default:
+            gameOver(figureQuestion);
+    }
+}
+
+function theHoodedFigure(){
+    alert("The figure turns slowly and floats away from you.  You follow slowly behind.");
+    
+    alert("It speaks as you continue to travel. \"So you seek " + charCreation.item + "?\"");
+    alert("\"I know of the one that you seek and that you appear noble in your endeavor. That is all The UnderBridge requires...nobility. You have made it this far and as reward I shall help you locate your treasure.\"");
+    var nobility = prompt("\"But first I must ask,\" it speaks, \"do you believe yourself noble?\"" , "Yes or No").toLowerCase();
+    
+    if(nobility == "yes"){
+        alert("You answer that you do possess a noble soul. The figure does not argue and continues to float towards an unknown destination.");
+        continueFollowing();
+    }
+        
+    else if(nobility == "no"){
+        alert("You can't fight your cowardice any longer and reveal that this journey is not for you.");
+        alert("The figure stops and turns towards you.  It reaches it's skeletal hand deep inside it's cloak and pulls out a small bag.");
+        alert("It reaches its hand inside and pulls out a powder of some sort.  The hand thrusts forward releasing its contents in your direction.");
+        escapeTheCave();
+        
+    }
+    else{
+        gameOver(nobility);
+    }
+        
+    }
+    
+function continueFollowing(){    
+    alert("You follow the hooded figure for what seems like hours.  You're traveling a long and winding path that dives in and out of the four seasons. You trudge through thick snow, heavy rain and the blazing sun.  You feel as if you can't go any further.");
+    alert("You ask if the road is much longer.");
+    alert("The figure responds, holding out its hand to stop you, \"we have arrived.\"");
+    theEnd();
+    }
+
+function escapeTheCave(){
+    alert("You find yourself in a familiar field of tall grass. You look around and notice you're back in " + charCreation.hometown + ".  You can't remember what you were seeking.  You make your way back to your home to never seek out that which you sought.");
+    
+    alert("The End");
+    
+}    
+    
+function theEnd(){
+    
+    alert("A great landscape unfolds in front of you. You notice an exquisite coffer in the distance and before it a chasm. The chasm is nothing more than a pool of the darkest black. Leading to the desirable chest, a bridge.");
+    alert("The figure begins to speak once again, \"I present the final test.  The Bridge of Fate. It has the power to deliver you to your treasure or the great abyss that sits before you.\"");
+    var goOrNot = prompt("\"Is this a risk you are willing to take?\", you're asked.", "Yes or No").toLowerCase();
+    
+    switch(goOrNot){
+        
+        case "yes":
+            theBridge();
+        break;
+        
+        case "no":
+            alert("You can't fight your cowardice any longer and reveal that this journey is not for you.");
+            alert("The figure stops and turns towards you.  It reaches it's skeletal hand deep inside it's cloak and pulls out a small bag.");
+            alert("It reaches its hand inside and pulls out a powder of some sort.  The hand thrusts forward releasing its contents in your direction.");
+            escapeTheCave();
+        break;
+        
+        default:
+            gameOver(goOrNot);
+        
+     }
+}
+        
+    function theBridge(){
+    alert("You nod at its question. You are willing. You slow forward and onto the bridge. It's fate is now in your hands.");
+    
+ //add randomizer here
+    var bridgeSurvival = [Math.floor(Math.random() * 2)];
+
+    if(bridgeSurvival == 0){
+        alert("Not wanting to waste any time, you begin to run across the long expanse of the bridge. You're reluctant to find that the bridge has allowed you to survive as you arrive on the other side.");
+        alert("Breathless, you approach the box in front of you.  You kneel down and swing back the lid.");
+        alert("You pull out the item you were looking for, " + charCreation.item + ". You flip it over in your hands, observing it. It's exactly as you remember it.");
+        alert("You look up and notice a door not too far off. It is lit by a familiar azure flame.  You move towards it, open it, and enter.  You find yourself at the entrance to The UnderBridge. You return home with your treasure in tow. You survived The UnderBridge.");
+        
+alert("---Credits---");
+
+//add loop here for credits
+for(x=1; x<=5; x++){
+  alert("---Story By---\nKenny Stephens");
+  x++;
+  alert("---Scripting---\nKenny Stephens");
+  x++;
+  alert("---Logo---\nKenny Stephens");
+  x++;
+  alert("---Debugging---\nKenny Stephens & Friends");
+  x++;
+  alert("---Everything Else---\nProbably Kenny Stephens");
+  x++;
+  alert("The End");
+}
+        
+    
+    }
+    else {
+        alert("It creaks slightly as you shuffle forward. You begin to move faster in your uneasiness. You hear an unraveling behind you. You quickly glance backwards and notice the bridge loosening itself from its supports.  You turn back around and break into a sprint. It's too late. The bridge has made its decision.  The bridge has chosen your fate. The blackness welcomes another guest.");
+         
+        var startOver = prompt("Would you like to start again?" , "Yes or No").toLowerCase();
+                
+        if(startOver == "yes"){
+                startGame();
+            }
+            else if(startOver == "no"){
+                noStartOver();
+            }
+            else{
+                gameOver(startOver);  
+            
+        }
+    }
+    
+}
+    
+
+</script>
+
+
+
+
+</body>
+</html>
